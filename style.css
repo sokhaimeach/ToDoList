@@ -1,0 +1,113 @@
+:root {
+    --background: #101114;
+    --primary-color: #1c1d20;
+    --secondary-color: #4a4d57;
+    --accent-color: #00ffc4;
+    --text-color: #f9f9f9;
+}
+
+body {
+    background-color: var(--background);
+}
+
+.wrapper {
+    position: relative;
+    width: 500px;
+    max-width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#input-list {
+    width: 92%;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: var(--background);
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 0px 10px;
+    outline: none;
+}
+
+#input-list:focus {
+    box-shadow: 0 0 10px 1px var(--accent-color);
+}
+
+#add-btn {
+    width: 70px;
+    height: 35px;
+    background-color: var(--accent-color);
+    border-style: none;
+    border-radius: 10px;
+    margin-left: 10px;
+    color: var(--background);
+    transition: transform 150ms ease-in-out;
+}
+
+#add-btn:hover {
+    box-shadow: 0 0 10px 1px var(--accent-color);
+    transform: scale(1.1);
+}
+
+.animation {
+    animation: zoomEffect 200ms;
+}
+
+@keyframes zoomEffect{
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1.1);}
+}
+
+.todo-list {
+    margin-top: 40px;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 0px 10px;
+    border-radius: 20px;
+    margin: 10px 0px;
+}
+
+.text {  
+    width: 250px;
+    min-width: 80%;
+    height: auto;
+    color: var(--text-color);
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.check-list {
+    font-size: 24px;
+    color: var(--text-color);
+    transition: transform 200ms ease;
+}
+
+.trash-list {
+    font-size: 24px;
+    color: var(--text-color);
+    transition: transform 200ms ease-in-out;
+}
+
+.check-list:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+.trash-list:hover {
+    transform: translateY(-5px);
+    color: var(--accent-color);
+}
