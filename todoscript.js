@@ -18,9 +18,22 @@ function getList() {
     if (getText == ""){ return; }
     arrList.push(getText);
     input_list.value = "";
-    console.log(arrList);
+    showList();
 }
 
-
+function showList() {
+    allList.innerHTML = "";
+    let iconId = 'index';
+    for(let i = 0; i < arrList.length; i++){
+        iconId = 'index' + i;
+        allList.insertAdjacentHTML('beforeend', `
+            <div class="list">
+                <i class="bi bi-circle check-list" class="${iconId}"></i>
+                <p class="text">${arrList[i]}</p>
+                <i class="bi bi-trash trash-list" class="${iconId}"></i>
+            </div>
+        `);
+    }
+}
 
 
