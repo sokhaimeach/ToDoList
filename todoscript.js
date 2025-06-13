@@ -2,7 +2,8 @@ const input_list = document.getElementById('input-list');
 const addList = document.getElementById('add-btn');
 const allList = document.getElementById('todo-list');
 
-let arrList = [];
+let arrList = JSON.parse(localStorage.getItem('storeArr')) || [];
+let checkClassName = 'check-list bi bi-circle';
 
 
 addList.addEventListener('click', function() {
@@ -16,7 +17,12 @@ addList.addEventListener('click', function() {
 function getList() {
     const getText = input_list.value;
     if (getText == ""){ return; }
-    arrList.push(getText);
+    let getObject = {
+        text: getText,
+        name: checkClassName
+    }
+    arrList.push(getObject);
+    localStorage.setItem('storeArr', JSON.stringify(arrList));
     input_list.value = "";
     showList();
 }
@@ -29,7 +35,7 @@ function showList() {
         allList.insertAdjacentHTML('beforeend', `
             <div class="list">
                 <i class="check-list bi bi-circle"></i>
-                <p class="text">${arrList[i]}</p>
+                <p class="text">${arrList[i].text}</p>
                 <i class="bi bi-trash trash-list"></i>
             </div>
         `);
